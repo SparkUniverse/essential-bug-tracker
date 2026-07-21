@@ -1,0 +1,40 @@
+name: Guard issue label changes
+
+on:
+  issues:
+    types:
+      - labeled
+      - unlabeled
+
+permissions: {}
+
+jobs:
+  dispatch:
+    runs-on: namespace-profile-arm64-1c2g
+    steps:
+      - name: Create GitHub App token
+        uses: actions/create-github-app-token@v3
+        id: create-github-app-token
+        with:
+          client-id: ${{ secrets.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: essential-bug-tracker-workflows
+          permission-contents: write
+
+      - name: Dispatch to the private workflows repository
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ steps.create-github-app-token.outputs.token }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: context.repo.owner,
+              repo: 'essential-bug-tracker-workflows',
+              event_type: 'label-changed',
+              client_payload: {
+                issue_number: context.payload.issue.number,
+                label: context.payload.label.name,
+                action: context.payload.action,
+                actor: context.payload.sender.login,
+              },
+            });

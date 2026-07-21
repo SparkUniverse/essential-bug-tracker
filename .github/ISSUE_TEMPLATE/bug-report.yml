@@ -1,0 +1,70 @@
+name: Bug Report
+description: Report a bug within Essential
+labels: ["Bug Report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug!
+
+        If you cannot fill out this template, please reach out to our [support team](https://essential.gg/discord) for help with your issue.
+
+        **Before reporting, please ensure:**
+        - The issue is reproducible without any other mods. If other mods are required for the problem to occur, please create a mod incompatibility report instead.
+        - That you are on the latest version of the Essential mod.
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft Version
+      placeholder: e.g. 1.21.11
+    validations:
+      required: true
+  - type: dropdown
+    id: modloader
+    attributes:
+      label: Modloader
+      options:
+        - Fabric
+        - Forge
+        - NeoForge
+    validations:
+      required: true
+  - type: input
+    id: modloader-version
+    attributes:
+      label: Modloader Version
+      placeholder: e.g. 0.19.2
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction Steps
+      description: Steps to reproduce the behaviour, plus any details you found while isolating the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected Behaviour
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: extra-information
+    attributes:
+      label: Extra Information
+      description: Any other context, e.g. screenshots, crash logs, or GPU/OS details.
+    validations:
+      required: false
+  - type: checkboxes
+    id: reports
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have checked that no other reports for this issue exist.
+          required: true

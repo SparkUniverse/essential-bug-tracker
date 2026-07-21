@@ -1,0 +1,88 @@
+name: Mod Incompatibility
+description: Report an incompatibility between Essential and another mod
+labels: ["Mod Incompatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a mod incompatibility!
+
+        If you cannot fill out this template, please reach out to our [support team](https://essential.gg/discord) for help with your issue.
+
+        **Before reporting, please try to narrow the incompatibility down to as few mods as possible:**
+        - Remove unrelated mods and confirm the issue still occurs.
+        - Isolate which mod(s) are actually required to trigger the problem.
+        - Note anything that changes the outcome (load order, when a setting is toggled, etc.).
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft Version
+      placeholder: e.g. 1.21.11
+    validations:
+      required: true
+  - type: dropdown
+    id: modloader
+    attributes:
+      label: Modloader
+      options:
+        - Fabric
+        - Forge
+        - NeoForge
+    validations:
+      required: true
+  - type: input
+    id: modloader-version
+    attributes:
+      label: Modloader Version
+      placeholder: e.g. 0.19.2
+    validations:
+      required: true
+  - type: textarea
+    id: mods
+    attributes:
+      label: Mods
+      description: List every mod that is installed when the incompatibility occurs. Provide Modrinth links where possible.
+      placeholder: |
+        - Essential 1.4.0.4
+        - Sodium mc26.2-0.9.1-fabric (https://modrinth.com/mod/sodium/version/mc26.2-0.9.1-fabric)
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction Steps
+      description: Steps to reproduce the behaviour, plus any details you found while isolating the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected Behaviour
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: extra-information
+    attributes:
+      label: Extra Information
+      description: Any other context, e.g. screenshots, crash logs, or GPU/OS details.
+    validations:
+      required: false
+  - type: checkboxes
+    id: isolation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have tried to isolate the incompatibility to as few mods as possible.
+          required: true
+  - type: checkboxes
+    id: reports
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have checked that no other reports for this issue exist.
+          required: true
