@@ -1,8 +1,3 @@
-# Actionlint does not have access to the custom runner profiles that we have configured.
-self-hosted-runner:
-  labels:
-    - namespace-profile-arm64-1c2g
-
 # Actionlint's information about `create-github-app-token` still assumes that `app-id` is required, when `client-id`
 # is replacing it.
 paths:

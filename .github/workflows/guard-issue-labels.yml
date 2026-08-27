@@ -10,7 +10,7 @@ permissions: {}
 
 jobs:
   dispatch:
-    runs-on: namespace-profile-arm64-1c2g
+    runs-on: ubuntu-slim
     steps:
       - name: Create GitHub App token
         uses: actions/create-github-app-token@v3
