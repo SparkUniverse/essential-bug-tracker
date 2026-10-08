@@ -1,7 +1,0 @@
-# Actionlint's information about `create-github-app-token` still assumes that `app-id` is required, when `client-id`
-# is replacing it.
-paths:
-  .github/workflows/*.yml:
-    ignore:
-      - 'input "client-id" is not defined in action "actions/create-github-app-token'
-      - 'missing input "app-id" which is required by action "actions/create-github-app-token'
