@@ -1,6 +1,6 @@
 name: Bug Report
 description: Report a bug within Essential
-labels: ["Bug Report"]
+labels: ["Bug"]
 body:
   - type: markdown
     attributes:
